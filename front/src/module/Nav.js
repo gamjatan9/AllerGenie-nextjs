@@ -18,10 +18,17 @@ const Nav = ({ username, onLogout }) => {
         // username이 없을 경우 처리
         return;
       }
-
+      const accessToken = localStorage.getItem("accessToken");
       // Express.js 서버에 사용자 정보를 요청하는 Axios 호출
       const response = await axios.get(
-        `http://localhost:8000/user/${username}`
+        
+        `https://port-0-team-3-3szcb0g2blp12i5o9.sel5.cloudtype.app/api/v1/mypage`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       // 요청이 성공했는지 확인
@@ -30,7 +37,7 @@ const Nav = ({ username, onLogout }) => {
         const userData = response.data;
 
         // 응답에서 받은 사용자 ID를 사용하여 'mypage' 경로로 이동
-        navigate(`/mypage?nickname=${userData.닉네임}`);
+        navigate(`/mypage?nickname=${userData.nickname}`);
       } else {
         console.error(
           "Error during user information retrieval:",

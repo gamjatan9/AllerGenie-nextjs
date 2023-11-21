@@ -10,8 +10,8 @@ const MyProfile = ({ username, email }) => {
       <div className="MyIcon">
         <img src={MyImage} alt="Profile Icon" />
       </div>
-      <p className="MyProfile-username">{username}님,</p>
-      <p className="MyProfile-email">{email}</p>
+      <p className="MyProfile-username">강형준 님,</p>
+      <p className="MyProfile-email">hjk@naver.com</p>
       <div className="addMedSearch">
         <img src={addCircle} alt="Add Circle" />
         <Link to="/search" style={{ textDecoration: "none", color: "inherit" }}>

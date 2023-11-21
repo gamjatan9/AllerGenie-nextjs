@@ -1,0 +1,5 @@
+# 프로젝트 전체에 대한 설정
+* text=auto
+
+# 특정 파일에 대한 설정
+*.json text eol=crlf

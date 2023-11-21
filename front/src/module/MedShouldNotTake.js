@@ -4,18 +4,18 @@ import deleteCircle from "../img/MyDeleteCircle.svg";
 
 const MedShouldNotTake = ({ username, medicineName }) => {
   const [medicationInfo, setMedicationInfo] = useState([
-    "나",
-    "다",
-    "가",
-    "나",
-  ]); // 더미 데이터 -> 추후 삭제
+    "아네모정",
+    "베스타제정",
+    "유린타민",
+    "크린조",
+  ]); 
   const [selectedMedIndex, setSelectedMedIndex] = useState(null); // medicationInfo 배열 index 값 저장
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/mypage/${username}`
+          `https://port-0-team-3-3szcb0g2blp12i5o9.sel5.cloudtype.app//api/v1/mypage`
         );
 
         if (!response.ok) {
@@ -52,7 +52,7 @@ const MedShouldNotTake = ({ username, medicineName }) => {
       // 약 삭제 요청
       try {
         await axios.delete(
-          `http://localhost:8000/deleteMedication/${username}`,
+          `https://port-0-team-3-3szcb0g2blp12i5o9.sel5.cloudtype.app/api/v1/mypage/delete`,
           {
             data: { medication: deletedMedication[0] },
           }
@@ -82,8 +82,8 @@ const MedShouldNotTake = ({ username, medicineName }) => {
               key={index}
               onClick={() => handleMedClick(index)}
             >
-              {/* {medicationInfo[index]} */}
-              {med.약정보}
+              {medicationInfo[index]}
+
             </div>
           ))}
         </div>

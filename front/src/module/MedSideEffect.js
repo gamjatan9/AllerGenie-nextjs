@@ -4,15 +4,16 @@ import Modal from "./ModalIngredient";
 
 const MedSideEffect = ({ medicineId }) => {
   const [mediData, setMediData] = useState({
-    image: "",
+    image: "아네모정",
     name: "",
     effect: "",
     caution: "",
+    sideEffect: ""
   });
 
   useEffect(() => {
    if (medicineId) {
-     axios.get(`/api/v1/home/${medicineId}`)
+     axios.get(`http://localhost:8000`)
        .then((response) => {
          const data = response.data;
          setMediData({
@@ -30,8 +31,9 @@ const MedSideEffect = ({ medicineId }) => {
      setMediData({
        image: "",
        name: "",
-       effect: "",
-       caution: "",
+       effect: "kk",
+       caution: "이 약의 투여기간 동안 다량의 우유를 섭취하는 것은 삼가세요. ",
+       sideEffect: "아네모정은 탄산마그네슘, 탄산수소나트륨, 침강탄산칼슘, 건조수산화알루미늄겔, 스코폴리아엑스 등 5개 성분의 복합제다. 진경제 성분인 스코폴리아엑스가 위산으로 인한 속쓰림·메스꺼움을 완화하고, 위 통증·경련을 억제한다."
      });
    }
  }, [medicineId]);
@@ -60,12 +62,12 @@ const MedSideEffect = ({ medicineId }) => {
             <img src={mediData.image}  />
           </div>
           <div className="Mypage-caution-content">
-            <div className="Mypage-caution-name">{mediData.name}</div>
+            <div className="Mypage-caution-name">{medicineId}</div>
             <div className="Mypage-caution-about">{mediData.caution}</div>
           </div>
         </div>
         {modalVisible && (
-          <Modal mediName={mediData.name} imageUrl={mediData.image} closeModal={closeModal}  />
+          <Modal mediName={medicineId} imageUrl={mediData.image} closeModal={closeModal}  />
         )}
       </section>
     </div>
