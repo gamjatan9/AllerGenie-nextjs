@@ -1,7 +1,7 @@
-# TEAM_3_2
+# About
 
-🍁 단풍톤 3팀 프론트 Renewal. 
-AllerGenie repo TEAM_3_2 for F-E
+🍁 단풍톤 3팀 프론트 
+AllerGenie renewal. 
 
 # REACT
 
